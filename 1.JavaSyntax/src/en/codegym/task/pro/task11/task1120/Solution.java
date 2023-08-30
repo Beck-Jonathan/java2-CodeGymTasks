@@ -9,8 +9,8 @@ Every letter is lowercase
 public class Solution {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        String line = console.nextLine();
-        line=line.toLowerCase();
+        String line = console.nextLine().toLowerCase();
+
         System.out.println(line);
     }
 }
