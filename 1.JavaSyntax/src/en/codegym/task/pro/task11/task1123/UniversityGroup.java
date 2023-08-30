@@ -22,7 +22,13 @@ public class UniversityGroup {
     }
 
     public void exclude(String excludedStudent) {
-        students.removeIf(student -> student.equals(excludedStudent));
+        // intellija suggested this lamba statement, so that was cool
+        //students.removeIf(student -> student.equals(excludedStudent));
+        for (int i=students.size()-1;i>=0;i--){
+            if (students.get(i).equals(excludedStudent)){
+                students.remove(i);
+            }
+        }
     }
 
     public static void main(String[] args) {
