@@ -7,7 +7,9 @@ Weather forecast
 public class Solution {
 
     public static void showWeather(City city) {
-        System.out.println("Today's temperature in " + city.getName()+" is " + city.getTemperature() );
+        //Flexing that printf skill.
+        //System.out.println("Today's temperature in " + city.getName()+" is " + city.getTemperature() );
+        System.out.printf("Today's temperature in %s is %d",city.getName(),city.getTemperature());
     }
 
     public static void main(String[] args) {

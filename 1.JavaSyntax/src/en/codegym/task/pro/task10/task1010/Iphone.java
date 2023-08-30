@@ -22,7 +22,21 @@ public class Iphone {
             return false;
         }
         Iphone test = (Iphone) o;
-        return((test.model == (this.model)) && (test.color == (this.color)) && (test.price==(this.price)));
+        // codygym likes this but I know it's wrong
+//        return((test.model == (this.model)) && (test.color == (this.color)) && (test.price==(this.price)));
+        //class teachings
+//        if (this.color.equals(test.color)&&this.price==test.price&&this.model.equals(test.model)){
+//            return true;
+//    }
+//        else {return false;}
+
+        if (Objects.equals(this.color,test.color)
+            && Objects.equals(this.model,test.model)
+            && Objects.equals(this.price,test.price)){
+            return true;
+        }
+        return false;
+
 
 
 
