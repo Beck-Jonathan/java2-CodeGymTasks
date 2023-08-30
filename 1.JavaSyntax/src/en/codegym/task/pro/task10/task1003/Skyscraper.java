@@ -5,20 +5,20 @@ Let's build a new business complex: CodeGym Business Center
 */
 
 public class Skyscraper {
-    private int floorsCount;
+    private int floorCount;
     private String developer;
 
     public Skyscraper(){
-        this.floorsCount=5;
+        this.floorCount=5;
         this.developer="CodeGymDevelopment";
     }
-    public Skyscraper(int floors, String developer){
-        this.floorsCount=floors;
+    public Skyscraper(int floorCount, String developer){
+        this.floorCount=floorCount;
         this.developer=developer;
     }
 
     public static void main(String[] args) {
         Skyscraper skyscraper = new Skyscraper();
-        Skyscraper skyscraperUnknown = new Skyscraper(50, "Unknown");
+        Skyscraper skyscraperUnknown = new Skyscraper(5, "CodeGymDevelopment");
     }
 }
