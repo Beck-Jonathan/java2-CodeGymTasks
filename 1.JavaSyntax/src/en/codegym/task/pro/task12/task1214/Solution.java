@@ -16,7 +16,7 @@ public class Solution {
     //int x =programmingLanguages.lastIndexOf(find);
     //programmingLanguages.remove(x);
       //above are some scribbles that did not quite work, updates below based on class notes
-    for (int i=programmingLanguages.size()-1; i > 0; i--) {
+    for (int i=programmingLanguages.size()-1; i >= 0; i--) {
       if (programmingLanguages.get(i).equals(find)) {
         programmingLanguages.remove(i);
       }
