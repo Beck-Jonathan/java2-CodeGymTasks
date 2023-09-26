@@ -17,7 +17,7 @@ public class Solution {
   }
 
   public static void createNewPlanet(String planetName) {
-    planets.add(3, planetName);
+    planets.add(planets.indexOf("Earth"), planetName);
   }
 
   public static void addPlanets() {
