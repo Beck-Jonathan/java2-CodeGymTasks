@@ -7,10 +7,10 @@ Let's list the CodeGym quests
 public class Solution {
 
     public static void main(String[] args) {
-        CodeGymQuest[] CodeGymQuests = CodeGymQuest.values();
+        //CodeGymQuest[] CodeGymQuests = CodeGymQuest.values();
 
-        for (CodeGymQuest Quest : CodeGymQuests){
-            System.out.println(Quest.ordinal());
+        for (CodeGymQuest val : CodeGymQuest.values()){
+            System.out.println(val.ordinal());
         }
     }
 }
