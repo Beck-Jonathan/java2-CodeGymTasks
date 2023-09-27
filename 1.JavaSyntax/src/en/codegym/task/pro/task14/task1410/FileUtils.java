@@ -23,8 +23,8 @@ public class FileUtils {
         lines.forEach(line -> {
             System.out.println(line);
             String[] lineArr = line.trim().split(" ");
-            for(String str: lineArr) {
-                if(str.isEmpty()) {
+            for (String str : lineArr) {
+                if (str.isEmpty()) {
                     continue;
                 }
                 String cleanWord = str.replaceAll("[^\\w-]", "").toLowerCase(); // matches any non-word char except dash/hyphen
@@ -38,10 +38,21 @@ public class FileUtils {
 
     public static void writeFile(String fileName) throws FileSystemException, FileNotFoundException {
         System.out.println("Writing data to the file: " + fileName);
-        try(PrintWriter writer = new PrintWriter(new File(FILE_PATH + fileName))) {
-            for(String word: words) {
+        try (PrintWriter writer = new PrintWriter(new File(FILE_PATH + fileName))) {
+            for (String word : words) {
                 writer.println(word);
             }
+        }
+    }
+
+    static void copyFile(String sourceFile, String destinationFile) {
+        try {
+            FileUtils.readFile(sourceFile);
+            FileUtils.writeFile(destinationFile);
+        } catch (FileNotFoundException | FileSystemException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
