@@ -12,6 +12,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class FileUtils {
+    //cody gym is not impressed, but It's not worth the fight to refactor this
+
     private static final String FILE_PATH = "1.JavaSyntax/src/main/resources/";
     private static Set<String> words = new TreeSet<>();
 
