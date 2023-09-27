@@ -29,7 +29,7 @@ public class StringLinkedList {
     String result = "";
     Node pacer = first;
     //this starts at -1 because our first node is the starting blocker node with no index.
-      //I understand why you started at 0. 
+      //I understand why you started at 0.
     int count = -1;
     if (first.next == null) {
       return null;
