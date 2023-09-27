@@ -4,20 +4,27 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileSystemException;
 
-/* 
+/*
 Wrapping exceptions
 */
 
 public class Solution {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         copyFile("book.txt", "book_final_copy.txt");
         copyFile("book_final_copy.txt", "book_last_copy.txt");
     }
 
-    static void copyFile(String sourceFile, String destinationFile) throws IOException {
-        FileUtils.readFile(sourceFile);
-        FileUtils.writeFile(destinationFile);
-        //write your code here
+    static void copyFile(String sourceFile, String destinationFile) {
+        try {
+            FileUtils.readFile(sourceFile);
+            FileUtils.writeFile(destinationFile);
+        } catch (FileNotFoundException | FileSystemException  e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+
+      //write your code here
     }
 }

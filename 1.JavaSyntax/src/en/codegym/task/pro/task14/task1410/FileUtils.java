@@ -15,14 +15,14 @@ public class FileUtils {
     private static final String FILE_PATH = "1.JavaSyntax/src/main/resources/";
     private static Set<String> words = new TreeSet<>();
 
-    public static void readFile(String fileName) throws IOException {
+    public static void readFile(String fileName) throws FileNotFoundException, IOException {
         System.out.println("Reading the file contents: " + fileName);
         List<String> lines = Files.readAllLines(Paths.get(FILE_PATH + fileName));
         lines.forEach(line -> {
             System.out.println(line);
             String[] lineArr = line.trim().split(" ");
-            for (String str : lineArr) {
-                if (str.isEmpty()) {
+            for(String str: lineArr) {
+                if(str.isEmpty()) {
                     continue;
                 }
                 String cleanWord = str.replaceAll("[^\\w-]", "").toLowerCase(); // matches any non-word char except dash/hyphen
@@ -34,9 +34,10 @@ public class FileUtils {
 
     }
 
-    public static void writeFile(String fileName) throws FileNotFoundException {
-        try (PrintWriter writer = new PrintWriter(new File(FILE_PATH + fileName))) {
-            for (String word : words) {
+    public static void writeFile(String fileName) throws FileSystemException, FileNotFoundException {
+        System.out.println("Writing data to the file: " + fileName);
+        try(PrintWriter writer = new PrintWriter(new File(FILE_PATH + fileName))) {
+            for(String word: words) {
                 writer.println(word);
             }
         }
