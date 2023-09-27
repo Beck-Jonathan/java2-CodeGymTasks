@@ -27,6 +27,7 @@ public class FileUtils {
                 if (str.isEmpty()) {
                     continue;
                 }
+                //the regex says  "not" by using the carat ^, \\w- means word characters and not - characters
                 String cleanWord = str.replaceAll("[^\\w-]", "").toLowerCase(); // matches any non-word char except dash/hyphen
                 words.add(cleanWord);
 
@@ -49,8 +50,7 @@ public class FileUtils {
         try {
             FileUtils.readFile(sourceFile);
             FileUtils.writeFile(destinationFile);
-        } catch (FileNotFoundException | FileSystemException e) {
-            throw new RuntimeException(e);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
