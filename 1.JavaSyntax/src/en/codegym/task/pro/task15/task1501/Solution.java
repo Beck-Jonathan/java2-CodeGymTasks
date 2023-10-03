@@ -11,6 +11,7 @@ Shortening try
 public class Solution {
     public static void main(String[] args) {
         //has to be a closeable object in the try with resources bit.
+        //we are going to use a java connection class
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
 
             String line = reader.readLine();
