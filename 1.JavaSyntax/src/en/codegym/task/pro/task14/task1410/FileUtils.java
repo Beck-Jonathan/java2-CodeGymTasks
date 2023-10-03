@@ -15,11 +15,11 @@ public class FileUtils {
   //cody gym is not impressed, but It's not worth the fight to refactor this
 
   private static final String FILE_PATH = "1.JavaSyntax/src/main/resources/";
-  private static Set<String> words = new TreeSet<>();
+  private static final Set<String> words = new TreeSet<>();
   private static List<String> lines = new ArrayList<>();
-  private static String[] lineArr = lines.toArray(new String[0]);
+  private static final String[] lineArr = lines.toArray(new String[0]);
 
-  public static void readFile(String fileName) throws FileNotFoundException, IOException {
+  public static void readFile(String fileName) throws IOException {
     System.out.println("Reading the file contents: " + fileName);
     lines = Files.readAllLines(Paths.get(FILE_PATH + fileName));
     lines.forEach(line -> {
@@ -51,40 +51,38 @@ public class FileUtils {
             continue;
           }
           String cleanWord = str.replaceAll("[^\\w-]", "").toLowerCase();
-          if (map2.containsKey(cleanWord)){
-            int val=map2.get(cleanWord);
+          if (map2.containsKey(cleanWord)) {
+            int val = map2.get(cleanWord);
             val++;
-                map2.put(cleanWord,val);
-          }else {
-            map2.put(cleanWord,1);
+            map2.put(cleanWord, val);
+          } else {
+            map2.put(cleanWord, 1);
           }
-
         }
-
-      });
-
+      }
+      );
     }
 
-    Map<String,Integer> topTen =
+    Map<String, Integer> topTen =
         map2.entrySet().stream()
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .limit(10)
             .collect(Collectors.toMap(
                 Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-  int x =4;
-  for (String str : topTen.keySet()){
-    System.out.println("The word '" +str + "' appears " + topTen.get(str) + " times.");
-  }
+    int x = 4;
+    for (String str : topTen.keySet()) {
+      System.out.println("The word '" + str + "' appears " + topTen.get(str) + " times.");
+    }
 
   }
 
-    static void copyFile (String sourceFile, String destinationFile){
-      try {
-        FileUtils.readFile(sourceFile);
-        FileUtils.writeFile(destinationFile);
+  static void copyFile(String sourceFile, String destinationFile) {
+    try {
+      FileUtils.readFile(sourceFile);
+      FileUtils.writeFile(destinationFile);
 
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
+    } catch (IOException e) {
+      throw new RuntimeException(e);
     }
   }
+}
