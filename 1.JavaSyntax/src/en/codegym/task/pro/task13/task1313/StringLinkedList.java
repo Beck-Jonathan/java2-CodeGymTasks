@@ -4,6 +4,8 @@ public class StringLinkedList {
     private Node first = new Node();
     private Node last = new Node();
 
+
+
     public void printAll() {
         Node currentElement = first.next;
         while ((currentElement) != null) {
@@ -32,5 +34,6 @@ public class StringLinkedList {
         private Node prev;
         private String value;
         private Node next;
+
     }
 }
