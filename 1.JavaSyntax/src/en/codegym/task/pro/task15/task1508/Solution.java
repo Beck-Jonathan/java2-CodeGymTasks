@@ -12,10 +12,13 @@ Reading from the console
 
 public class Solution {
     public static void main(String[] args) {
-        try (InputStream stream = System.in;
-             Scanner console = new Scanner(stream)) {
-            String line = console.nextLine();
-            char[] chars = line.toCharArray();
+        char [] chars = new char[100];
+        try (
+            InputStream stream = System.in;
+             InputStreamReader reader = new InputStreamReader(stream);
+             BufferedReader buff = new BufferedReader(reader)){
+            String line = buff.readLine();
+            chars = line.toCharArray();
             for (int i = 0; i < chars.length; i++) {
                 if (i % 2 == 1) {
                     System.out.print(String.valueOf(chars[i]).toUpperCase());
