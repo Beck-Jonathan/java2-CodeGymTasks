@@ -1,0 +1,10 @@
+The word 'not' appears 166 times.
+The word 'i' appears 140 times.
+The word 'them' appears 122 times.
+The word 'a' appears 118 times.
+The word 'like' appears 88 times.
+The word 'in' appears 80 times.
+The word 'do' appears 72 times.
+The word 'you' appears 68 times.
+The word 'would' appears 52 times.
+The word 'and' appears 48 times.

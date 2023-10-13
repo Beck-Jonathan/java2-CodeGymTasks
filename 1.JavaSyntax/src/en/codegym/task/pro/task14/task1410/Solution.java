@@ -13,7 +13,7 @@ public class Solution {
 
   public static void main(String[] args) {
     FileUtils.copyFile("book.txt", "book_final_copy.txt");
-    FileUtils.copyFile("book_final_copy.txt", "book_last_copy.txt");
+    //FileUtils.copyFile("book_final_copy.txt", "book_last_copy.txt");
   }
 
   //write your code here

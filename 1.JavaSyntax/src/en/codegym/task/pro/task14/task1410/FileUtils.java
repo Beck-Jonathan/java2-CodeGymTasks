@@ -23,7 +23,7 @@ public class FileUtils {
     System.out.println("Reading the file contents: " + fileName);
     lines = Files.readAllLines(Paths.get(FILE_PATH + fileName));
     lines.forEach(line -> {
-      System.out.println(line);
+      //System.out.println(line);
       String[] lineArr = line.trim().split(" ");
       for (String str : lineArr) {
         if (str.isEmpty()) {
@@ -34,7 +34,7 @@ public class FileUtils {
         words.add(cleanWord);
 
       }
-      words.forEach(System.out::println);
+      //words.forEach(System.out::println);
     });
 
   }
@@ -44,36 +44,37 @@ public class FileUtils {
     Map<String, Integer> map2 = new HashMap<String, Integer>();
     try (PrintWriter writer = new PrintWriter(new File(FILE_PATH + fileName))) {
       lines.forEach(line -> {
-        System.out.println(line);
-        String[] lineArr = line.trim().split(" ");
-        for (String str : lineArr) {
-          if (str.isEmpty()) {
-            continue;
+            //System.out.println(line);
+            String[] lineArr = line.trim().split(" ");
+            for (String str : lineArr) {
+              if (str.isEmpty()) {
+                continue;
+              }
+              String cleanWord = str.replaceAll("[^\\w-]", "").toLowerCase();
+              if (map2.containsKey(cleanWord)) {
+                int val = map2.get(cleanWord);
+                val++;
+                map2.put(cleanWord, val);
+              } else {
+                map2.put(cleanWord, 1);
+              }
+            }
           }
-          String cleanWord = str.replaceAll("[^\\w-]", "").toLowerCase();
-          if (map2.containsKey(cleanWord)) {
-            int val = map2.get(cleanWord);
-            val++;
-            map2.put(cleanWord, val);
-          } else {
-            map2.put(cleanWord, 1);
-          }
-        }
-      }
       );
-    }
 
-    Map<String, Integer> topTen =
-        map2.entrySet().stream()
-            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-            .limit(10)
-            .collect(Collectors.toMap(
-                Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-    int x = 4;
-    for (String str : topTen.keySet()) {
-      System.out.println("The word '" + str + "' appears " + topTen.get(str) + " times.");
-    }
+      Map<String, Integer> topTen =
+          map2.entrySet().stream()
+              .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+              .limit(10)
+              .collect(Collectors.toMap(
+                  Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+      int x = 4;
+      for (String str : topTen.keySet()) {
+        System.out.println("The word '" + str + "' appears " + topTen.get(str) + " times.");
+        writer.println("The word '" + str + "' appears " + topTen.get(str) + " times.");
+      }
 
+    }
   }
 
   static void copyFile(String sourceFile, String destinationFile) {
