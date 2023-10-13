@@ -9,8 +9,7 @@ Wrapping exceptions
 */
 
 public class Solution {
-  //cody gym is not impressed, but It's not worth the fight to refactor this
-
+  //Hey this passes code gym now, weird?
   public static void main(String[] args) {
     FileUtils.copyFile("book.txt", "book_final_copy.txt");
     //FileUtils.copyFile("book_final_copy.txt", "book_last_copy.txt");
